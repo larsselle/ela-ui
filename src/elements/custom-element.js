@@ -1,9 +1,3 @@
-export function defineCustomElement(tagName, constructor, options) {
-  if (!window.customElements.get(tagName)) {
-    window.customElements.define(tagName, constructor, options);
-  }
-};
-
 export class CustomElement extends HTMLElement{
   constructor() {
     super();
@@ -20,13 +14,13 @@ export class CustomElement extends HTMLElement{
     }
   }
 
-  _setAttribut(name, value) {
-    if (wert) {
-      if (this.getAttribute(name) !== wert) {
+  _setAttribute(name, value) {
+    if (value) {
+      if (this.getAttribute(name) !== value) {
         if (typeof wert === 'boolean')
           this.setAttribute(name, '');
         else
-          this.setAttribute(name, wert);
+          this.setAttribute(name, value);
       }
     }
     else {

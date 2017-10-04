@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-bgcolor: #1976d2;
+  --primary-bgcolor-light: #63a4ff;
+  --primary-bgcolor-dark: #004ba0;
+  --primary-color-large: #fff;
+  --primary-color-normal: rgba(255, 255, 255, .98);
+  --primary-color-light-large: rgba(0, 0, 0, .48);
+  --primary-color-light-normal: rgba(0, 0, 0, .65);
+  --primary-color-dark-large: rgba(255, 255, 255, .47);
+  --primary-color-dark-normal: rgba(255, 255, 255, .66);
+
+  /*
+  --secondary-bgcolor: #fbc02d;
+  --secondary-bgcolor-light: #fff263;
+  --secondary-bgcolor-dark: #c49000;
+  --secondary-color-large: #000;
+  --secondary-color-normal: rgba(0, 0, 0, .58);
+  --secondary-color-light-large: rgba(0, 0, 0, .43);
+  --secondary-color-light-normal: rgba(0, 0, 0, .55);
+  --secondary-color-dark-large: rgba(0, 0, 0, .51);
+  --secondary-color-dark-normal: rgba(0, 0, 0, .68);
+  */
+
+  --button-color: #000;
+}
