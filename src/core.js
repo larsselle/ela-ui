@@ -5,3 +5,8 @@ export function defineCustomElement(tagName, constructor, options) {
     window.customElements.define(tagName, constructor, options);
   }
 };
+
+export function changeCssClass(element, removeClass, addClass) {
+  element.classList.add(addClass);
+  element.classList.remove(removeClass);
+};

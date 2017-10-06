@@ -1,3 +1,8 @@
+body {
+  font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+  font-size: 100%;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -26,4 +31,17 @@
   */
 
   --button-color: #000;
+
+  --text-field-bottom-line-color: rgba(0, 0, 0, .42);
+  --text-field-bottom-line-hover-color: rgba(0, 0, 0, .87);
+  --text-field-bottom-line-focus-color: #0039cb;
+  --text-field-text-color: rgba(0, 0, 0, .54);
+  --text-field-disabled-color: rgba(0, 0, 0, .38);
+  --text-field-label-text-focus-color: rgba(0, 57, 203, .87);
+  --text-field-input-text-focus-color: rgba(0, 0, 0, .87);
+  --text-field-placeholder-color: rgba(0, 0, 0, .42);
+  --text-field-helper-text-color: rgba(0, 0, 0, .54);
+  --text-field-error-text-color: rgba(255, 23, 68, .87);
+  --text-field-label-font-size: 11px;
+  --text-field-input-font-size: 14px;
 }

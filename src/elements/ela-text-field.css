@@ -1,0 +1,89 @@
+ela-text-field {
+  display: block;
+  padding: 0 8px 8px 8px;
+}
+
+ela-text-field > div {
+  border-width: 1px;
+  border-radius: 2px;
+  border-color: var(--text-field-bottom-line-color);
+  border-style: none none solid;
+  min-height: 44px;
+}
+
+ela-text-field[disabled] > div {
+  border-style: none none dotted;
+}
+
+ela-text-field:not([disabled]) > div:hover:not(.focus):not(.error) {
+  border-width: 2px;
+  border-color: var(--text-field-bottom-line-hover-color);
+}
+
+ela-text-field > div.focus {
+  border-width: 2px;
+  border-color: var(--text-field-bottom-line-focus-color);
+}
+
+ela-text-field > div > label {
+  display: block;
+  position: relative;
+  top: 20px;
+  left: 0;
+  font-size: 14px;
+  pointer-events: none;
+  color: var(--text-field-placeholder-color);
+  transform-origin: top left;
+  transition: all .3s;
+}
+
+ela-text-field > div > label.top {
+  transform: scale(.75) translateY(-21px);
+  color: var(--text-field-text-color);
+}
+
+ela-text-field > div.focus > label.top {
+  color: var(--text-field-label-text-focus-color);
+}
+
+ela-text-field > div > input {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  padding: 4px 0;
+  font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+  font-size: var(--text-field-input-font-size);
+  color: var(--text-field-text-color);
+}
+
+ela-text-field > div > input::placeholder {
+  color: var(--text-field-placeholder-color);
+}
+
+ela-text-field > div > input:focus {
+  outline: none;
+  color: var(--text-field-input-text-focus-color);
+}
+
+ela-text-field[disabled] > div > label,
+ela-text-field[disabled] > div > input {
+  color: var(--text-field-disabled-color);
+}
+
+ela-text-field > label {
+  font-size: var(--text-field-label-font-size);
+}
+
+ela-text-field > label.help {
+  color: var(--text-field-helper-text-color);
+}
+
+ela-text-field > div.error > label,
+ela-text-field > label.error {
+  color: var(--text-field-error-text-color);
+}
+
+ela-text-field > div.error {
+  border-width: 2px;
+  border-color: var(--text-field-error-text-color);
+}
