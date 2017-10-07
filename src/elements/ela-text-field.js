@@ -83,104 +83,106 @@ class ElaTextField extends CustomElement{
   }
 
   _textboxBlur(e) {
-    if (!this._placeholder && !this._input.value)
+    if (!this.placeholder && !this._input.value)
       this._label.classList.remove('top');
     this._textField.classList.remove('focus');
     this.dispatchEvent(new Event('blur'));
   }
 
   get text() {
-    return this._text;
+    return this.getAttribute('text');
   }
 
   set text(value) {
-    if (this._text !== value) {
-      this._text = value;
-      super._setAttribute('text', value);
-      if (this._label)
-        this._label.innerText = value;
-    }
+    super._setValue('text', value);
+  }
+
+  onTextChanged(newValue) {
+    if (this._label)
+      this._label.innerText = newValue;
   }
 
   get value() {
-    return this._value;
+    return this.getAttribute('value');
   }
 
   set value(value){
-    if (this._value !== value) {
-      this._value = value;
-      super._setAttribute('value', value);
-      if (this._input) {
-        this._input.value = value;
-        if (this._label) {
-          if (!value && !this._placeholder) {
-            this._label.style.display = 'none';
-            this._input.placeholder = this._label.innerText;
-          }
-          else {
-            this._label.style.display = this._labelDisplay;
-          }
+    super._setValue('value', value);
+  }
+
+  onValueChanged(newValue) {
+    if (this._input) {
+      this._input.value = newValue;
+      if (this._label) {
+        if (!newValue && !this.placeholder) {
+          this._label.classList.remove('top');
+        }
+        else {
+          this._label.classList.add('top');
         }
       }
     }
   }
 
   get placeholder() {
-    return this._placeholder;
+    return this.getAttribute('placeholder');
   }
 
   set placeholder(value){
-    if (this._placeholder !== value) {
-      this._placeholder = value;
-      super._setAttribute('placeholder', value);
-      if (this._input)
-        this._input.placeholder = value;
-    }
+    super._setValue('placeholder', value);
+  }
+
+  onPlaceholderChanged(newValue) {
+    if (this._input)
+      this._input.placeholder = newValue;
   }
 
   get disabled() {
     return this.hasAttribute('disabled');
   }
 
-  set disabled(value){
-    super._setAttribute('disabled', value);
+  set disabled(value) {
+    super._setValue('disabled', value);
+  }
+
+  onDisabledChanged(newValue) {
     if (this._input)
-      this._input.disabled = value;
+      this._input.disabled = newValue;
   }
 
   get help() {
-    return this._help;
+    return this.getAttribute('help');
   }
 
   set help(value) {
-    if (this._help !== value) {
-      this._help = value;
-      super._setAttribute('help', value);
-      if (this._message && !this.error)
-        this._message.innerText = value;
-    }
+    super._setValue('help', value);
+  }
+
+  onHelpChanged(newValue) {
+    if (this._message && !this.error)
+      this._message.innerText = newValue;
   }
 
   get error() {
-    return this._error;
+    return this.getAttribute('error');
   }
 
   set error(value) {
-    if (this._error !== value) {
-      this._error = value;
-      super._setAttribute('error', value);
-      if (this._message)
-        if (value) {
-          this._message.innerText = value;
-          core.changeCssClass(this._message, 'help', 'error');
-          this._textField.classList.add('error');
-        }
-        else {
-          this._message.innerText = this._help;
-          core.changeCssClass(this._message, 'error', 'help');
-          this._textField.classList.remove('error');
-        }
-    }
+    super._setValue('error', value);
+  }
+
+  onErrorChanged(newValue) {
+    if (this._message)
+      if (newValue) {
+        this._message.innerText = newValue;
+        core.changeCssClass(this._message, 'help', 'error');
+        this._textField.classList.add('error');
+      }
+      else {
+        this._message.innerText = this.help;
+        core.changeCssClass(this._message, 'error', 'help');
+        this._textField.classList.remove('error');
+      }
   }
 }
 

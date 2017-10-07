@@ -6,8 +6,6 @@ import './ela-button.css'
 class ElaButton extends CustomElement{
   constructor() {
     super();
-
-    this.addEventListener('click', this.clickEvent.bind(this));
   }
 
   connectedCallback() {
@@ -17,35 +15,28 @@ class ElaButton extends CustomElement{
       this.innerText = this.text;
   }
 
-  disconnectedCallback() {
-    this.removeEventListener('click', this.clickEvent);
-  }
-
   static get observedAttributes() {
     return ['text', 'type', 'disabled'];
   }
 
   get text() {
-    return this._text;
+    return this.getAttribute('text');
   }
 
   set text(value){
-    if (this._text !== value) {
-      this._text = value;
-      super._setAttribute('text', value);
-      this.innerText = this._text;
-    }
+    super._setValue('text', value);
+  }
+
+  onTextChanged(newValue) {
+    this.innerText = newValue;
   }
 
   get type() {
-    return this._type;
+    return this.getAttribute('type');
   }
 
   set type(value){
-    if (this._type !== value) {
-      this._type = value;
-      super._setAttribute('type', value);
-    }
+    super._setValue('type', value);
   }
 
   get disabled() {
@@ -53,15 +44,14 @@ class ElaButton extends CustomElement{
   }
 
   set disabled(value){
-    super._setAttribute('disabled', value);
+    super._setValue('disabled', value);
   }
 
-  clickEvent(e) {
-    e.stopPropagation();
-
-    if (!this.disabled) {
-      this.dispatchEvent(new Event('click'));
-    }
+  onDisabledChanged(newValue) {
+    if (newValue)
+      this.style.pointerEvents = 'none';
+    else
+      this.style.pointerEvents = 'auto';
   }
 }
 
