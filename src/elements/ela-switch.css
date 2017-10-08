@@ -1,0 +1,52 @@
+:root{
+  --switch-thumb-on: var(--secondary-bgcolor, var(--primary-bgcolor));
+  --switch-track-on: rgba(25, 118, 210, .50);
+  --switch-thumb-off: #FAFAFA;
+  --switch-track-off: rgba(0, 0, 0, .38);
+  --switch-thumb-disabled: #BDBDBD;
+  --switch-track-disabled: rgba(0, 0, 0, .12);
+}
+
+ela-switch {
+    width: 36px;
+    height: 14px;
+}
+
+ela-switch > .track {
+    border-radius: 8px;
+    pointer-events: none;
+    opacity: .4;
+    background-color: var(--switch-track-off);
+
+    width: 28px;
+    height: 12px;
+}
+
+ela-switch > .thumb {
+    position: relative;
+    left: 0;
+    top: -14px;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    background-color: var(--switch-thumb-off);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .4);
+}
+
+ela-switch[checked] > .thumb {
+    background-color: var(--switch-thumb-on);
+    left: unset;
+    right: -12px;
+}
+
+ela-switch[checked] > .track {
+    background-color: var(--switch-track-on);
+}
+
+ela-switch[disabled] > .thumb {
+    background-color: var(--switch-thumb-disabled);
+}
+
+ela-switch[disabled] > .track {
+    background-color: var(--switch-track-disabled);
+}
