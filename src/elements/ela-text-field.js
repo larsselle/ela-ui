@@ -53,6 +53,8 @@ class ElaTextField extends CustomElement{
       core.changeCssClass(this._message, 'help', 'error');
       this._textField.classList.add('error');
     }
+
+    this._input.disabled = this.disabled;
   }
 
   disconnectedCallback() {
