@@ -4,6 +4,7 @@ ela-text-field {
 }
 
 ela-text-field > div {
+  position: relative;
   border-width: 1px;
   border-radius: 2px;
   border-color: var(--text-field-bottom-line-color);
@@ -27,7 +28,7 @@ ela-text-field > div.focus {
 
 ela-text-field > div > label {
   display: block;
-  position: relative;
+  position: absolute;
   top: 20px;
   left: 0;
   font-size: 14px;
@@ -50,7 +51,7 @@ ela-text-field > div > input {
   width: 100%;
   background-color: transparent;
   border: none;
-  padding: 4px 0;
+  padding: 20px 0 4px 0;
   font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
   font-size: var(--text-field-input-font-size);
   color: var(--text-field-text-color);
